@@ -7,7 +7,7 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "t-dupe",
+    "productName": "t-dup",
     "version": "0.0.0"
   },
   "tauri": {
@@ -30,7 +30,7 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "t-dupe",
+        "title": "t-dup",
         "width": 800,
         "height": 600
       }
