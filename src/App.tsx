@@ -4,12 +4,12 @@ import { invoke } from "@tauri-apps/api/tauri";
 import "./App.css";
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
+  const [files, setFiles] = useState([]);
+  const [path, setPath] = useState("");
 
-  async function greet() {
+  async function search() {
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    setGreetMsg(await invoke("greet", { name }));
+    setFiles(await invoke("search", { path }));
   }
 
   return (
@@ -34,18 +34,20 @@ function App() {
         className="row"
         onSubmit={(e) => {
           e.preventDefault();
-          greet();
+          search();
         }}
       >
         <input
-          id="greet-input"
-          onChange={(e) => setName(e.currentTarget.value)}
-          placeholder="Enter a name..."
+          id="search-input"
+          onChange={(e) => setPath(e.currentTarget.value)}
+          placeholder="Enter a folder path"
         />
-        <button type="submit">Greet</button>
+        <button type="submit">search</button>
       </form>
 
-      <p>{greetMsg}</p>
+      <p>{files.map((file,idx) => {
+        return <div key={idx}>{file}</div>
+      })}</p>
     </div>
   );
 }
