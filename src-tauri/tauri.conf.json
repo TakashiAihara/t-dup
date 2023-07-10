@@ -1,7 +1,7 @@
 {
   "build": {
-    "beforeDevCommand": "pnpm dev",
     "beforeBuildCommand": "pnpm build",
+    "beforeDevCommand": "pnpm dev",
     "devPath": "http://localhost:1420",
     "distDir": "../dist",
     "withGlobalTauri": false
@@ -11,17 +11,24 @@
     "version": "0.0.0"
   },
   "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      }
+    },
     "bundle": {
       "active": true,
-      "targets": "all",
-      "identifier": "com.tauri.dev",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
         "icons/128x128@2x.png",
         "icons/icon.icns",
         "icons/icon.ico"
-      ]
+      ],
+      "identifier": "com.tauri.dev",
+      "targets": "all"
     },
     "security": {
       "csp": null
@@ -29,16 +36,11 @@
     "windows": [
       {
         "fullscreen": false,
+        "height": 600,
         "resizable": true,
         "title": "t-dup",
-        "width": 800,
-        "height": 600
+        "width": 800
       }
     ]
-  },
-  "plugins": {
-    "shell": {
-      "open": true
-    }
   }
 }
