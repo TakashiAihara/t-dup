@@ -1320,6 +1320,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bfa799dd5ed20a7e349f3b4639aa80d74549c81716d9ec4f994c9b5815598306"
 
 [[package]]
+name = "indoc"
+version = "2.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "761cde40c27e2a9877f8c928fd248b7eec9dd48623dd514b256858ca593fbba7"
+
+[[package]]
 name = "infer"
 version = "0.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2519,12 +2525,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7230ab99f7b726fa49e350886816dbe5b5b151a5f4158470f92850246d5cae5e"
 dependencies = [
  "document-features",
- "indoc",
+ "indoc 1.0.9",
  "once_cell",
  "paste",
  "serde",
  "serde_json",
  "specta-macros",
+ "tauri",
  "thiserror",
 ]
 
@@ -2644,8 +2651,10 @@ dependencies = [
  "rspc",
  "serde",
  "serde_json",
+ "specta",
  "tauri",
  "tauri-build",
+ "tauri-specta",
  "tokio",
 ]
 
@@ -2867,6 +2876,21 @@ dependencies = [
  "webview2-com",
  "windows 0.39.0",
  "wry",
+]
+
+[[package]]
+name = "tauri-specta"
+version = "1.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "aa034c38b7bdfeccc606eca0b030a1e67a20b78e7642edef09816b7e1ff9a9de"
+dependencies = [
+ "heck 0.4.1",
+ "indoc 2.0.2",
+ "serde",
+ "serde_json",
+ "specta",
+ "tauri",
+ "thiserror",
 ]
 
 [[package]]
