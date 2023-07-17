@@ -2,14 +2,14 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { invoke } from "@tauri-apps/api/tauri";
 import "./App.css";
+import * as commands from "./types/bindings"; // This should point to the file we export from Rust
 
 function App() {
-  const [files, setFiles] = useState([]);
-  const [path, setPath] = useState("");
+  const [files, setFiles] = useState<string[]>([]);
+  const [path, setPath] = useState<string>("");
 
   async function search() {
-    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    setFiles(await invoke("search", { path }));
+    setFiles(await commands.search(path));
   }
 
   return (
